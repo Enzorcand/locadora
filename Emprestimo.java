@@ -1,33 +1,32 @@
 
-/**
- * Escreva uma descrição da classe Emprestimo aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
+
 public class Emprestimo
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe Emprestimo
-     */
-    public Emprestimo()
+    private int numero;
+    private Socio socio;
+    private Filme filme;
+    
+    public Emprestimo(int numero, Socio socio, Filme filme)
     {
-        // inicializa variáveis de instância
-        x = 0;
+        this.numero = numero;
+        this.socio = socio;
+        this.filme = filme;
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+    
+    public void encerra(){
+        socio.devolveFilme();
+        filme.devolveCopia();
+    }
+    
+    public int getNumero(){
+        return numero;
+    }
+    
+    public Socio getSocio(){
+        return socio;
+    }
+    
+    public Filme getFilme(){
+        return filme;
     }
 }

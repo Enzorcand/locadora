@@ -1,33 +1,41 @@
 
-/**
- * Escreva uma descrição da classe Filme aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
+
 public class Filme
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe Filme
-     */
-    public Filme()
+    private int codigo;
+    private String titulo;
+    private int genero;
+    private int copias;
+    
+    public Filme(int codigo, int genero, String titulo, int copias)
     {
-        // inicializa variáveis de instância
-        x = 0;
+        this.codigo = codigo;
+        this.genero = genero;
+        this.titulo = titulo;
+        this.copias = copias;
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+    
+    public void emprestaCopia(){
+        copias--;
+    }
+    
+    public void devolveCopia(){
+        copias++;
+    }
+    
+    public int getCodigo(){
+        return codigo;
+    }
+    
+    public String getTitulo(){
+        return titulo;
+    }
+    
+    public int getCopias(){
+        return copias;
+    }
+    
+    public int getGenero(){
+        return genero;
     }
 }

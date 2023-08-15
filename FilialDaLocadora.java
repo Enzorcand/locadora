@@ -1,33 +1,50 @@
-
-/**
- * Escreva uma descrição da classe FilialDaLocadora aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
 public class FilialDaLocadora
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe FilialDaLocadora
-     */
-    public FilialDaLocadora()
+    private final String[] tab_genero = 
+    {"Drama","Comédia","Clássico",
+    "Terror","Western","Aventura",
+    "Infantil","Guerra","Outros"};
+    
+    private int nFilial;
+    
+    private int lastEmprestimo;
+    private int lastSocio;
+    private int lastFilme;
+    
+    private Filme[] filmes;
+    private Socio[] socios;
+    private Emprestimo[] emprestimo;
+    
+    private int pFilmes;
+    private int pSocios;
+    private int pEmprestimos;
+    
+    public FilialDaLocadora(int nFilial, int pFilmes, int pSocios, int pEmprestimos)
     {
-        // inicializa variáveis de instância
-        x = 0;
+        this.nFilial = nFilial;
+        this.pFilmes = pFilmes;
+        this.pSocios = pSocios;
+        this.pEmprestimos = pEmprestimos;
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+    
+    public boolean adquireFilme(String t, int g, int n){
+        boolean exist = false;
+        for(int i = 0; i > filmes.length; i++){
+            if(filmes[i].getTitulo().equals(t)){
+                exist = true;
+            }
+        }
+        if(exist){
+            System.out.println();
+            return false;
+        } else {
+            int i = 0;
+            while(filmes[i] != null){
+                i++;
+            }
+            Filme filme = new Filme(lastFilme + 1, g, t, n);
+            lastFilme++;
+            return true;
+        }
     }
 }
