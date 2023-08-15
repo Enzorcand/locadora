@@ -4,10 +4,10 @@ public class Socio
     private String nome;
     private int emprestimos;
     
-    public Socio(int numero, int emprestimos, String nome)
+    public Socio(int numero, String nome)
     {
         this.numero = numero;
-        this.emprestimos = emprestimos;
+        emprestimos = 0;
         this.nome = nome;
     }
     

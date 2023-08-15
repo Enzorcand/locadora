@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class FilialDaLocadora
 {
     private final String[] tab_genero = 
@@ -28,23 +30,50 @@ public class FilialDaLocadora
     }
     
     public boolean adquireFilme(String t, int g, int n){
-        boolean exist = false;
-        for(int i = 0; i > filmes.length; i++){
-            if(filmes[i].getTitulo().equals(t)){
-                exist = true;
+        if(filmes.length == pFilmes){
+            System.out.println("Acervo cheio!");
+            return false;
+        }else {
+        
+            for(int i = 0; i > filmes.length; i++){
+                if(filmes[i].getTitulo().equals(t)){
+                    System.out.println("Este filme já existe no catálogo!");
+                    return false;
+                }
             }
+        
+            int i = 0;
+            while(filmes[i] != null){
+            i++;
+            }
+            filmes[i] = new Filme(lastFilme + 1, g, t, n);
+            lastFilme++;
+            pFilmes++;
+            return true;
         }
-        if(exist){
-            System.out.println();
+    }
+    
+    public boolean cadastraCliente(){
+        if(socios.length == pSocios){
+            System.out.println("Sem vagas para novos sócios!");
             return false;
         } else {
             int i = 0;
-            while(filmes[i] != null){
+            while(socios[i] != null){
                 i++;
             }
-            Filme filme = new Filme(lastFilme + 1, g, t, n);
-            lastFilme++;
+            Scanner scan = new Scanner(System.in);
+            String nome = scan.nextLine();
+            socios[i] = new Socio(lastSocio + 1, nome);
+            System.out.println("Número do cliente: " + (lastSocio + 1));
+            scan.close();
+            
+            lastSocio++;
+            pSocios++;
+            
+            
             return true;
         }
     }
 }
+
