@@ -10,7 +10,9 @@ public class Emprestimo
     {
         this.numero = numero;
         this.socio = socio;
+        this.socio.retiraFilme();
         this.filme = filme;
+        this.filme.emprestaCopia();
     }
     
     public void encerra(){
