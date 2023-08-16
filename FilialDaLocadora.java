@@ -15,7 +15,7 @@ public class FilialDaLocadora
     
     private Filme[] filmes;
     private Socio[] socios;
-    private Emprestimo[] emprestimo;
+    private Emprestimo[] emprestimos;
     
     private int pFilmes;
     private int pSocios;
@@ -24,6 +24,7 @@ public class FilialDaLocadora
     public FilialDaLocadora(int nFilial, int x, int y, int z)
     {
         this.nFilial = nFilial;
+
         pFilmes = 0;
         pSocios = 0;
         pEmprestimos = 0;
@@ -31,7 +32,15 @@ public class FilialDaLocadora
         lastEmprestimo = 0;
         lastSocio = 0;
         lastFilme = 0;
+
+        this.pFilmes = 0;
+        this.pSocios = 0;
+        this.pEmprestimos = 0;
         
+        this.lastFilme = 0;
+        this.lastSocio = 0;
+        this.lastEmprestimo = 0;
+      
         filmes = new Filme[x];
         socios = new Socio[y];
         emprestimos = new Emprestimo[z];
@@ -84,6 +93,7 @@ public class FilialDaLocadora
         }
     }
     
+
     public void fazEmpréstimo(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Insira o número do sócio: ");
@@ -117,5 +127,45 @@ public class FilialDaLocadora
         
         scan.close();
     }
+    public boolean devolveEmprestimo(int n){
+        Emprestimo emprestimo = buscaEmprestimo(n);
+        if(emprestimo == null){
+            return false;
+        }
+        emprestimo.encerra();
+        System.out.println("Devolução concluida");
+        return true;
+    }
+    
+    public Emprestimo buscaEmprestimo(int n){
+        for(int i = 0; i < pEmprestimos; i++){
+            if(emprestimos[i].getNumero() == n){
+                return emprestimos[i];
+            }
+        }
+        System.out.println("Emprestimo não encontrado.");
+        return null;
+    }
+    
+    public Socio buscaSocio(int n){
+        for(int i = 0; i < pSocios; i++){
+            if(socios[i].getNumero() == n){
+                System.out.println("Sócio encontrado: " + socios[i].getNome());
+                return socios[i];
+            }
+        }
+        System.out.println("Sócio não encontrado");
+        return null;
+    }
+    
+    public Filme buscaFilme(String t){
+        for(int i = 0; i > filmes.length; i++){
+                if(filmes[i].getTitulo().equals(t)){
+                    return filmes[i];
+                }
+            }
+        return null;
+    }
 }
+
 

@@ -12,6 +12,8 @@ public class Emprestimo
         this.socio = socio;
         this.socio.retiraFilme();
         this.filme = filme;
+
+        this.socio.retiraFilme();
         this.filme.emprestaCopia();
     }
     
