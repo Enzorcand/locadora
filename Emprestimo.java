@@ -11,6 +11,8 @@ public class Emprestimo
         this.numero = numero;
         this.socio = socio;
         this.filme = filme;
+        this.socio.retiraFilme();
+        this.filme.emprestaCopia();
     }
     
     public void encerra(){
